@@ -1,0 +1,3 @@
+Rodar no terminal do VScode para ver qualquer projeto offline com o Tailwindcss
+npm run build:css
+Obs: não fechar o terminal após executar
