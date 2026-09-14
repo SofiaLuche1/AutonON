@@ -29,10 +29,7 @@ colors: {
 
 <title>AutonON | Cadastro</title>
 
-<link
-href="./dist/output.css"
-rel="stylesheet"
->
+<link href="./dist/output.css" rel="stylesheet">
 </head>
 
 <body
@@ -60,7 +57,7 @@ border-alabaster/10
 text-sm"
 >
 <a
-href="#"
+href="home.html"
 class="
 text-dark-sky-blue
 hover:underline"
@@ -72,11 +69,11 @@ text-alabaster/30"
 >|</span>
 
 <a
-href="#"
+href="sobre_noix.html"
 class="
 text-dark-sky-blue
 hover:underline"
->Cadastro</a>
+>Sobre Nós</a>
 
 <span
 class="
@@ -84,7 +81,7 @@ text-alabaster/30"
 >|</span>
 
 <a
-href="#"
+href="dashboard.html"
 class="
 text-dark-sky-blue
 hover:underline"
@@ -218,6 +215,7 @@ Criar Conta
 </h1>
 
 <form
+id="form-cadastro"
 class="
 flex
 flex-col
@@ -246,6 +244,7 @@ Nome:
 id="nome"
 name="nome"
 type="text"
+required
 class="
 w-full
 border
@@ -286,6 +285,7 @@ Nome de usuário:
 id="usuario"
 name="usuario"
 type="text"
+required
 class="
 w-full
 border
@@ -326,6 +326,7 @@ E-mail:
 id="email"
 name="email"
 type="email"
+required
 class="
 w-full
 border
@@ -366,6 +367,7 @@ Senha:
 id="senha"
 name="senha"
 type="password"
+required
 class="
 w-full
 border
@@ -406,6 +408,7 @@ Digite a senha novamente:
 id="confirmar-senha"
 name="confirmar-senha"
 type="password"
+required
 class="
 w-full
 border
@@ -451,6 +454,24 @@ text-lg"
 </span>
 
 </button>
+<p 
+class="
+MT-4 
+text-xs
+text-gray
+flex
+items-center
+justify-center
+gap-1"
+>
+Já tem uma conta?
+<a href="login.html" 
+class="
+text-dark-blue
+hover:underline">
+Fazer Login
+</a>
+</p>
 
 </form>
 
@@ -462,29 +483,33 @@ text-lg"
 
 </main>
 
-<!-- LINK PARA LOGIN -->
-<p
-class="
-mb-8
-px-4
-text-xs
-text-pastel-gray
-text-center"
->
+<!-- SCRIPT DE VALIDAÇÃO E REDIRECIONAMENTO -->
+<script>
+  document.getElementById('form-cadastro').addEventListener('submit', function(event) {
+    event.preventDefault(); // Impede o envio padrão do formulário
 
-Não tem uma conta?
+    const nome = document.getElementById('nome').value.trim();
+    const usuario = document.getElementById('usuario').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const senha = document.getElementById('senha').value;
+    const confirmarSenha = document.getElementById('confirmar-senha').value;
 
-<a
-href="#"
-class="
-text-dark-sky-blue
-hover:underline
-ml-1"
->
-Fazer login
-</a>
+    // Valida se algum campo está vazio
+    if (!nome || !usuario || !email || !senha || !confirmarSenha) {
+      alert('Por favor, preencha todos os campos!');
+      return;
+    }
 
-</p>
+    // Valida se as senhas coincidem
+    if (senha !== confirmarSenha) {
+      alert('As senhas não coincidem!');
+      return;
+    }
+
+    // Redireciona para a página dashboard.html
+    window.location.href = 'dashboard.html';
+  });
+</script>
 
 </body>
 </html>

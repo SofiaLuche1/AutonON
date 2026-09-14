@@ -1,832 +1,383 @@
 <!DOCTYPE html>
-<html
-lang="pt-br"
->
+<html lang="pt-br">
 <head>
-<meta
-charset="UTF-8"
->
-<meta
-name="viewport"
-content="width=device-width, initial-scale=1.0"
->
-
-<script>
-tailwind.config = {
-theme: {
-extend: {
-colors: {
-'charleston-green': '#2A2829',
-'dark-sky-blue': '#97B4DE',
-'custom-blue': '#263A99',
-'alabaster': '#F0EBE5',
-'pastel-gray': '#DCD0BE',
-}
-}
-}
-}
-</script>
-
-<title>AutonON | Criar página</title>
-
-<link
-href="./dist/output.css"
-rel="stylesheet"
->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="./dist/output.css" rel="stylesheet">
+  <title>Criar página</title>
 </head>
 
-<body
-class="
-bg-gray-50
-text-gray-800
-flex
-flex-col
-min-h-screen
-font-sans"
->
+<body class="bg-gray-50 text-gray-800 flex flex-col min-h-screen font-sans">
 
-<!-- BARRA DE NAVEGAÇÃO -->
-<header
-class="
-flex
-items-center
-gap-4
-py-4
-px-[8%]
-bg-white
-border-b
-border-gray-200
-text-sm"
->
-<a
-href="#"
-id="link-lar"
-class="
-text-blue-700
-hover:underline"
->
-Lar
-</a>
+  <!-- BARRA DE NAVEGAÇÃO -->
+  <header class="flex items-center gap-4 py-4 px-[8%] bg-white border-b border-gray-200 text-sm">
+    <a href="home.html" id="link-lar" class="text-blue-600 hover:underline">Home</a>
+    <span class="text-gray-300">|</span>
+    <a href="perfil.html" id="link-usuario" class="text-blue-600 hover:underline">Username</a>
+    <span class="text-gray-300">|</span>
+    <a href="cadastro.html" id="link-criar" class="text-blue-600 hover:underline">Criar</a>
+  </header>
 
-<span
-class="
-text-gray-300"
->
-|
-</span>
+  <!-- ALERTA -->
+  <div id="alerta" role="alert" class="hidden fixed top-5 right-5 z-50 max-w-sm rounded-lg border px-4 py-3 shadow-lg text-sm transition-all duration-300">
+    <div class="flex items-start gap-3">
+      <span id="alerta-icone" class="font-bold">✓</span>
+      <div>
+        <strong id="alerta-titulo" class="block font-semibold">Sucesso</strong>
+        <span id="alerta-mensagem">Operação realizada.</span>
+      </div>
+      <button id="fechar-alerta" type="button" class="ml-3 text-lg leading-none opacity-70 hover:opacity-100" aria-label="Fechar alerta">×</button>
+    </div>
+  </div>
 
-<a
-href="#"
-id="link-usuario"
-class="
-text-blue-700
-hover:underline"
->
-Akira Sato
-</a>
+  <!-- CONTEÚDO PRINCIPAL -->
+  <main class="flex-1 w-full max-w-5xl mx-auto px-4 sm:px-8 lg:px-10 py-8">
 
-<span
-class="
-text-gray-300"
->
-|
-</span>
+    <!-- ABAS (Pill-style) -->
+    <nav class="flex flex-wrap items-center justify-start gap-2 mb-8" aria-label="Etapas da criação">
+      <button type="button" data-tab="identidade" class="tab-button rounded-full px-5 py-2 text-sm font-medium transition-colors text-black">
+        Identidade
+      </button>
+      <button type="button" data-tab="apresentacao" class="tab-button rounded-full px-5 py-2 text-sm font-medium transition-colors text-black">Apresentação</button>
+      <button type="button" data-tab="servicos" class="tab-button rounded-full px-5 py-2 text-sm font-medium transition-colors text-black">Serviços</button>
+      <button type="button" data-tab="galeria" class="tab-button rounded-full px-5 py-2 text-sm font-medium transition-colors text-black">Galeria</button>
+      <button type="button" data-tab="tema" class="tab-button rounded-full px-5 py-2 text-sm font-medium transition-colors text-black">Tema</button>
+    </nav>
 
-<a
-href="#"
-id="link-criar"
-class="
-text-blue-700
-hover:underline"
->
-Criar
-</a>
-</header>
+    <form id="formulario-dashboard" class="space-y-6">
 
-<!-- ALERTA -->
-<div
-id="alerta"
-role="alert"
-class="
-hidden
-fixed
-top-5
-right-5
-z-50
-max-w-sm
-rounded-lg
-border
-px-4
-py-3
-shadow-lg
-text-sm"
->
-<div
-class="
-flex
-items-start
-gap-3"
->
-<span
-id="alerta-icone"
-class="
-font-bold"
->
-✓
-</span>
+      <!-- ABA IDENTIDADE -->
+      <section id="tab-identidade" class="tab-content space-y-4">
+        <h1 class="text-base font-semibold text-gray-800">Identidade</h1>
 
-<div>
-<strong
-id="alerta-titulo"
-class="
-block
-font-semibold"
->
-Sucesso
-</strong>
+        <div class="space-y-4 max-w-xl">
+          <div>
+            <label for="nome-marca" class="block text-xs font-semibold text-gray-700 mb-1">Nome da Marca</label>
+            <input id="nome-marca" name="nome-marca" type="text" class="w-full h-10 rounded-md border border-gray-300 bg-white px-3 text-sm outline-none focus:border-blue-600 focus:ring-1 focus:ring-blue-600">
+          </div>
 
-<span
-id="alerta-mensagem"
->
-Operação realizada.
-</span>
-</div>
+          <div>
+            <label for="slogan" class="block text-xs font-semibold text-gray-700 mb-1">Slogan</label>
+            <input id="slogan" name="slogan" type="text" class="w-full h-10 rounded-md border border-gray-300 bg-white px-3 text-sm outline-none focus:border-blue-600 focus:ring-1 focus:ring-blue-600">
+          </div>
 
-<button
-id="fechar-alerta"
-type="button"
-class="
-ml-3
-text-lg
-leading-none
-opacity-70
-hover:opacity-100"
-aria-label="Fechar alerta"
->
-×
-</button>
-</div>
-</div>
+          <div>
+            <label for="foto" class="block text-xs font-semibold text-gray-700 mb-1">Foto da Marca/Perfil</label>
+            <div class="flex items-center gap-4">
+              <input id="foto" name="foto" type="file" accept="image/*" class="block w-full max-w-md text-sm text-gray-500 file:mr-3 file:rounded-md file:border-0 file:bg-gray-100 file:px-3 file:py-2 file:text-sm file:text-gray-700 hover:file:bg-gray-200 cursor-pointer">
+              <img id="preview-foto" alt="Pré-visualização da foto" class="hidden h-12 w-12 rounded-full object-cover border border-gray-200">
+            </div>
+          </div>
+        </div>
+      </section>
 
-<!-- CONTEÚDO PRINCIPAL -->
-<main
-class="
-flex-1
-w-full
-max-w-6xl
-mx-auto
-px-4
-sm:px-8
-lg:px-10
-py-6"
->
+      <!-- ABA APRESENTAÇÃO -->
+      <section id="tab-apresentacao" class="tab-content space-y-2 hidden">
+        <h1 class="text-xs text-gray-500 mb-1">Apresentação</h1>
+        <h2 class="text-sm font-bold text-gray-800 mb-2">Descrição</h2>
 
-<!-- ABAS -->
-<nav
-class="
-flex
-flex-wrap
-items-center
-gap-2
-mb-4"
-aria-label="Etapas da criação"
->
-<button
- type="button"
- data-tab="identidade"
- class="tab-button rounded-md bg-indigo-600 px-4 py-2 text-sm text-white shadow-sm transition-colors hover:bg-indigo-700"
->
-Identidade
-</button>
+        <!-- EDITOR DE TEXTO ENRIQUECIDO -->
+        <div class="border border-gray-300 rounded-md bg-white max-w-2xl overflow-hidden shadow-sm">
+          <!-- Barra de Ferramentas -->
+          <div class="flex flex-wrap items-center gap-1 p-2 bg-gray-50 border-b border-gray-200 text-black text-xs select-none">
+            <button type="button" onclick="execCmd('bold')" class="p-1.5 rounded hover:bg-gray-200 font-bold w-7 h-7 flex items-center justify-center text-black" title="Negrito">B</button>
+            <button type="button" onclick="execCmd('italic')" class="p-1.5 rounded hover:bg-gray-200 italic w-7 h-7 flex items-center justify-center text-black" title="Itálico">I</button>
+            <button type="button" onclick="execCmd('underline')" class="p-1.5 rounded hover:bg-gray-200 underline w-7 h-7 flex items-center justify-center text-black" title="Sublinhado">U</button>
+            <span class="text-gray-300 mx-1">|</span>
+            <button type="button" onclick="execCmd('justifyLeft')" class="p-1.5 rounded hover:bg-gray-200 w-7 h-7 flex items-center justify-center text-black" title="Alinhar à Esquerda">¶</button>
+            <button type="button" onclick="execCmd('justifyCenter')" class="p-1.5 rounded hover:bg-gray-200 w-7 h-7 flex items-center justify-center text-black" title="Centralizar">≡</button>
+            <span class="text-gray-300 mx-1">|</span>
+            <button type="button" onclick="execCmd('insertUnorderedList')" class="p-1.5 rounded hover:bg-gray-200 w-7 h-7 flex items-center justify-center text-black" title="Lista com Marcadores">•=</button>
+            <button type="button" onclick="execCmd('insertOrderedList')" class="p-1.5 rounded hover:bg-gray-200 w-7 h-7 flex items-center justify-center text-black" title="Lista Numerada">1=</button>
+            <span class="text-gray-300 mx-1">|</span>
+            <button type="button" onclick="adicionarLink()" class="p-1.5 rounded hover:bg-gray-200 w-7 h-7 flex items-center justify-center text-black" title="Inserir Link">🔗</button>
+            <button type="button" onclick="execCmd('undo')" class="p-1.5 rounded hover:bg-gray-200 w-7 h-7 flex items-center justify-center text-black" title="Desfazer">↩</button>
+            <button type="button" onclick="execCmd('redo')" class="p-1.5 rounded hover:bg-gray-200 w-7 h-7 flex items-center justify-center text-black" title="Refazer">↪</button>
+          </div>
 
-<button
- type="button"
- data-tab="apresentacao"
- class="tab-button rounded-md px-4 py-2 text-sm text-gray-500 transition-colors hover:bg-gray-200 hover:text-gray-800"
->
-Apresentação
-</button>
+          <!-- Área editável -->
+          <div id="editor-descricao" contenteditable="true" class="min-h-[160px] p-3 text-sm text-gray-800 outline-none focus:ring-1 focus:ring-blue-600" placeholder="Escreva algo..."></div>
 
-<button
- type="button"
- data-tab="servicos"
- class="tab-button rounded-md px-4 py-2 text-sm text-gray-500 transition-colors hover:bg-gray-200 hover:text-gray-800"
->
-Serviços
-</button>
+          <!-- Rodapé do Editor -->
+          <div class="px-3 py-1 bg-gray-50 border-t border-gray-100 text-[10px] text-gray-400 flex justify-between items-center uppercase tracking-wider">
+            <span>Escreva algo...</span>
+            <div>
+              <span>Caracteres: <span id="char-count">0</span></span> | 
+              <span>Palavras: <span id="word-count">0</span></span>
+            </div>
+          </div>
+        </div>
+      </section>
 
-<button
- type="button"
- data-tab="galeria"
- class="tab-button rounded-md px-4 py-2 text-sm text-gray-500 transition-colors hover:bg-gray-200 hover:text-gray-800"
->
-Galeria
-</button>
+      <!-- ABA SERVIÇOS -->
+      <section id="tab-servicos" class="tab-content space-y-4 hidden">
+        <h1 class="text-xs text-gray-700 font-medium">Serviços</h1>
 
-<button
- type="button"
- data-tab="tema"
- class="tab-button rounded-md px-4 py-2 text-sm text-gray-500 transition-colors hover:bg-gray-200 hover:text-gray-800"
->
-Tema
-</button>
-</nav>
+        <div id="lista-servicos" class="space-y-3 max-w-2xl">
+          <!-- Item de Serviço Inicial -->
+          <div class="flex items-center gap-3 item-servico">
+            <input type="text" placeholder="Nome do serviço" class="flex-1 h-10 rounded-md border border-gray-300 bg-white px-3 text-sm outline-none focus:border-blue-600 focus:ring-1 focus:ring-blue-600">
+            <div class="relative w-36">
+              <span class="absolute left-3 top-2.5 text-sm text-gray-500">R$</span>
+              <input type="text" value="0" class="w-full h-10 pl-9 pr-3 rounded-md border border-gray-300 bg-white text-sm outline-none focus:border-blue-600 focus:ring-1 focus:ring-blue-600">
+            </div>
+            <button type="button" onclick="removerServico(this)" class="text-gray-400 hover:text-red-500 text-lg px-1" title="Remover serviço">&times;</button>
+          </div>
+        </div>
 
-<form
-id="formulario-dashboard"
-class="
-space-y-5"
->
+        <button type="button" id="btn-adicionar-servico" class="text-sm font-medium text-black hover:text-blue-600 flex items-center gap-1 pt-1">
+          + Adicionar serviço
+        </button>
+      </section>
 
-<!-- ABA IDENTIDADE -->
-<section
-id="tab-identidade"
-class="tab-content"
->
-<h1
-class="
-text-sm
-font-medium
-text-gray-800"
->
-Identidade
-</h1>
+      <!-- ABA GALERIA -->
+      <section id="tab-galeria" class="tab-content space-y-4 hidden">
+        <h1 class="text-xs text-gray-700 font-medium">Galeria</h1>
 
-<div
-class="
-mt-1
-space-y-3"
->
-<div>
-<label
-for="nome-marca"
-class="
-block
-text-xs
-text-gray-700
-mb-1"
->
-Nome da Marca
-</label>
+        <div class="flex items-center gap-3">
+          <label for="imagens" class="cursor-pointer bg-gray-100 hover:bg-gray-200 text-black px-4 py-2 rounded-md text-sm border border-gray-300 transition-colors">
+            Escolher arquivos
+          </label>
+          <input id="imagens" name="imagens" type="file" accept="image/*" multiple class="hidden">
+          <span id="galeria-status" class="text-xs text-gray-500">Nenhum arquivo escolhido</span>
+        </div>
 
-<input
-id="nome-marca"
-name="nome-marca"
-type="text"
-class="
-w-full
-h-8
-rounded-md
-border
-border-gray-300
-bg-white
-px-3
-text-sm
-outline-none
-focus:border-indigo-500
-focus:ring-1
-focus:ring-indigo-500"
->
-</div>
+        <div id="lista-galeria" class="mt-4 flex flex-wrap gap-3"></div>
+      </section>
 
-<div>
-<label
-for="slogan"
-class="
-block
-text-xs
-text-gray-700
-mb-1"
->
-Slogan
-</label>
+      <!-- ABA TEMA -->
+      <section id="tab-tema" class="tab-content space-y-4 hidden">
+        <h1 class="text-xs font-medium text-gray-700">Tema</h1>
 
-<input
-id="slogan"
-name="slogan"
-type="text"
-class="
-w-full
-h-8
-rounded-md
-border
-border-gray-300
-bg-white
-px-3
-text-sm
-outline-none
-focus:border-indigo-500
-focus:ring-1
-focus:ring-indigo-500"
->
-</div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-xl">
+          <div>
+            <label for="cor-principal" class="block text-xs text-gray-700 mb-1">Cor principal</label>
+            <input id="cor-principal" name="cor-principal" type="color" value="#2563EB" class="h-10 w-full cursor-pointer rounded-md border border-gray-300 bg-white p-1">
+          </div>
 
-<div>
-<label
-for="foto"
-class="
-block
-text-xs
-text-gray-700
-mb-1"
->
-Foto
-</label>
+          <div>
+            <label for="estilo-fonte" class="block text-xs text-gray-700 mb-1">Estilo da fonte</label>
+            <select id="estilo-fonte" name="estilo-fonte" class="h-10 w-full rounded-md border border-gray-300 bg-white px-3 text-sm outline-none focus:border-blue-600">
+              <option value="sans">Sans-serif</option>
+              <option value="serif">Serifada</option>
+              <option value="mono">Monoespaçada</option>
+            </select>
+          </div>
+        </div>
+      </section>
 
-<div
-class="
-flex
-items-center
-flex-wrap
-gap-3"
->
-<input
-id="foto"
-name="foto"
-type="file"
-accept="image/*"
-class="
-block
-w-full
-max-w-md
-text-sm
-text-gray-500
-file:mr-3
-file:rounded-md
-file:border-0
-file:bg-gray-100
-file:px-3
-file:py-2
-file:text-sm
-file:text-gray-700
-hover:file:bg-gray-200"
->
+      <!-- CONTROLES DA NAVEGAÇÃO SPA -->
+      <div class="flex items-center gap-3 pt-4">
+        <button id="botao-voltar" type="button" class="hidden rounded-lg bg-gray-100 hover:bg-gray-200 border border-gray-300 px-6 py-2.5 text-sm font-medium text-black transition-colors">
+          Voltar
+        </button>
 
-<img
-id="preview-foto"
-alt="Pré-visualização da foto"
-class="
-hidden
-h-12
-w-12
-rounded-full
-object-cover
-border
-border-gray-200"
->
-</div>
-</div>
-</div>
-</section>
+        <button id="botao-continuar" type="button" class="rounded-lg bg-blue-600 hover:bg-blue-700 px-6 py-2.5 text-sm font-medium text-black shadow transition-colors">
+          Continuar
+        </button>
 
-<!-- ABA APRESENTAÇÃO -->
-<section
-id="tab-apresentacao"
-class="tab-content hidden"
->
-<h1
-class="
-text-sm
-font-medium
-text-gray-800"
->
-Apresentação
-</h1>
+        <button id="botao-enviar" type="submit" class="hidden rounded-lg bg-green-600 hover:bg-green-700 px-6 py-2.5 text-sm font-medium text-black shadow transition-colors">
+          Enviar
+        </button>
+      </div>
 
-<label
-for="descricao"
-class="
-block
-text-xs
-text-gray-700
-mt-1
-mb-1"
->
-Descrição
-</label>
+    </form>
+  </main>
 
-<textarea
-id="descricao"
-name="descricao"
-rows="6"
-placeholder="Conte um pouco sobre sua marca..."
-class="
-w-full
-rounded-md
-border
-border-gray-300
-bg-white
-px-3
-py-2
-text-sm
-outline-none
-focus:border-indigo-500
-focus:ring-1
-focus:ring-indigo-500"
-></textarea>
-</section>
+  <!-- JAVASCRIPT / LOGICA SPA E INTERATIVIDADES -->
+  <script>
+    const abas = ['identidade', 'apresentacao', 'servicos', 'galeria', 'tema'];
+    let abaAtual = 0;
 
-<!-- ABA SERVIÇOS -->
-<section
-id="tab-servicos"
-class="tab-content hidden"
->
-<h1
-class="
-text-sm
-font-medium
-text-gray-800"
->
-Serviços
-</h1>
+    // elementos DOM
+    const alerta = document.getElementById('alerta');
+    const alertaTitulo = document.getElementById('alerta-titulo');
+    const alertaMensagem = document.getElementById('alerta-mensagem');
+    const alertaIcone = document.getElementById('alerta-icone');
+    const botaoVoltar = document.getElementById('botao-voltar');
+    const botaoContinuar = document.getElementById('botao-continuar');
+    const botaoEnviar = document.getElementById('botao-enviar');
+    const formulario = document.getElementById('formulario-dashboard');
 
-<label
-for="servicos"
-class="
-block
-text-xs
-text-gray-700
-mt-1
-mb-1"
->
-Serviços oferecidos
-</label>
+    // exibição de alertas
+    function mostrarAlerta(mensagem, tipo = 'sucesso') {
+      const sucesso = tipo === 'sucesso';
+      alerta.classList.remove('hidden', 'border-green-200', 'bg-green-50', 'text-green-800', 'border-red-200', 'bg-red-50', 'text-red-800');
 
-<textarea
-id="servicos"
-name="servicos"
-rows="6"
-placeholder="Digite os serviços oferecidos, um por linha..."
-class="
-w-full
-rounded-md
-border
-border-gray-300
-bg-white
-px-3
-py-2
-text-sm
-outline-none
-focus:border-indigo-500
-focus:ring-1
-focus:ring-indigo-500"
-></textarea>
-</section>
+      if (sucesso) {
+        alerta.classList.add('border-green-200', 'bg-green-50', 'text-green-800');
+        alertaTitulo.textContent = 'Sucesso';
+        alertaIcone.textContent = '✓';
+      } else {
+        alerta.classList.add('border-red-200', 'bg-red-50', 'text-red-800');
+        alertaTitulo.textContent = 'Atenção';
+        alertaIcone.textContent = '!';
+      }
 
-<!-- ABA GALERIA -->
-<section
-id="tab-galeria"
-class="tab-content hidden"
->
-<h1
-class="
-text-sm
-font-medium
-text-gray-800"
->
-Galeria
-</h1>
+      alertaMensagem.textContent = mensagem;
 
-<label
-for="imagens"
-class="
-block
-text-xs
-text-gray-700
-mt-1
-mb-1"
->
-Adicionar imagens
-</label>
+      window.clearTimeout(window.timerAlerta);
+      window.timerAlerta = window.setTimeout(() => {
+        alerta.classList.add('hidden');
+      }, 4000);
+    }
 
-<input
-id="imagens"
-name="imagens"
-type="file"
-accept="image/*"
-multiple
-class="
-block
-w-full
-max-w-md
-text-sm
-text-gray-500
-file:mr-3
-file:rounded-md
-file:border-0
-file:bg-gray-100
-file:px-3
-file:py-2
-file:text-sm
-file:text-gray-700
-hover:file:bg-gray-200"
->
+    // Função de Atualização da Aba SPA
+    function atualizarAba(indice) {
+      abaAtual = indice;
 
-<div
-id="lista-galeria"
-class="
-mt-4
-flex
-flex-wrap
-gap-3"
-></div>
-</section>
+      // Ocultar todas as seções
+      document.querySelectorAll('.tab-content').forEach(conteudo => {
+        conteudo.classList.add('hidden');
+      });
 
-<!-- ABA TEMA -->
-<section
-id="tab-tema"
-class="tab-content hidden"
->
-<h1
-class="
-text-sm
-font-medium
-text-gray-800"
->
-Tema
-</h1>
+      // Exibir aba selecionada
+      document.getElementById(`tab-${abas[indice]}`).classList.remove('hidden');
 
-<div
-class="
-mt-3
-grid
-grid-cols-1
-sm:grid-cols-2
-gap-4"
->
-<div>
-<label
-for="cor-principal"
-class="
-block
-text-xs
-text-gray-700
-mb-1"
->
-Cor principal
-</label>
+      // Atualizar botões de navegação superior 
+      document.querySelectorAll('.tab-button').forEach(botao => {
+        const ativo = botao.dataset.tab === abas[indice];
+        if (ativo) {
+          botao.className = "tab-button rounded-full px-5 py-2 text-sm font-medium bg-blue-600 text-black shadow-sm transition-colors";
+        } else {
+          botao.className = "tab-button rounded-full px-5 py-2 text-sm font-medium text-black hover:bg-gray-200 transition-colors";
+        }
+      });
 
-<input
-id="cor-principal"
-name="cor-principal"
-type="color"
-value="#4f46e5"
-class="
-h-10
-w-full
-cursor-pointer
-rounded-md
-border
-border-gray-300
-bg-white
-p-1"
->
-</div>
+      // botões de navegação inferior
+      botaoVoltar.classList.toggle('hidden', indice === 0);
+      botaoContinuar.classList.toggle('hidden', indice === abas.length - 1);
+      botaoEnviar.classList.toggle('hidden', indice !== abas.length - 1);
+    }
 
-<div>
-<label
-for="estilo-fonte"
-class="
-block
-text-xs
-text-gray-700
-mb-1"
->
-Estilo da fonte
-</label>
+    // Eventos na barra do site
+    document.querySelectorAll('.tab-button').forEach(botao => {
+      botao.addEventListener('click', () => {
+        atualizarAba(abas.indexOf(botao.dataset.tab));
+      });
+    });
 
-<select
-id="estilo-fonte"
-name="estilo-fonte"
-class="
-h-10
-w-full
-rounded-md
-border
-border-gray-300
-bg-white
-px-3
-text-sm
-outline-none
-focus:border-indigo-500"
->
-<option value="sans">Sans-serif</option>
-<option value="serif">Serifada</option>
-<option value="mono">Monoespaçada</option>
-</select>
-</div>
-</div>
-</section>
+    // evento dos botões "continuar" e "voltar"
+    botaoContinuar.addEventListener('click', () => {
+      if (abaAtual < abas.length - 1) {
+        atualizarAba(abaAtual + 1);
+      }
+    });
 
-<!-- CONTROLES -->
-<div
-class="
-flex
-items-center
-gap-3
-pt-1"
->
-<button
-id="botao-voltar"
-type="button"
-class="
-hidden
-rounded-md
-bg-gray-200
-px-4
-py-2
-text-sm
-font-medium
-text-gray-700
-transition-colors
-hover:bg-gray-300"
->
-Voltar
-</button>
+    botaoVoltar.addEventListener('click', () => {
+      if (abaAtual > 0) {
+        atualizarAba(abaAtual - 1);
+      }
+    });
 
-<button
-id="botao-continuar"
-type="button"
-class="
-rounded-md
-bg-indigo-600
-px-4
-py-2
-text-sm
-font-medium
-text-white
-shadow-sm
-transition-colors
-hover:bg-indigo-700
-focus:outline-none
-focus:ring-2
-focus:ring-indigo-400
-focus:ring-offset-2"
->
-Continuar
-</button>
+    // enviar o form
+    formulario.addEventListener('submit', (evento) => {
+      evento.preventDefault();
+      const nomeMarca = document.getElementById('nome-marca').value.trim();
 
-<button
-id="botao-enviar"
-type="submit"
-class="
-hidden
-rounded-md
-bg-green-600
-px-4
-py-2
-text-sm
-font-medium
-text-white
-shadow-sm
-transition-colors
-hover:bg-green-700
-focus:outline-none
-focus:ring-2
-focus:ring-green-400
-focus:ring-offset-2"
->
-Enviar
-</button>
-</div>
-</form>
-</main>
+      if (!nomeMarca) {
+        atualizarAba(0);
+        mostrarAlerta('Preencha o Nome da Marca antes de enviar.', 'erro');
+        document.getElementById('nome-marca').focus();
+        return;
+      }
 
-<script>
-const abas = [
-  'identidade',
-  'apresentacao',
-  'servicos',
-  'galeria',
-  'tema'
-];
+      mostrarAlerta('As informações da sua página foram enviadas com sucesso!');
+    });
 
-let abaAtual = 0;
+    document.getElementById('fechar-alerta').addEventListener('click', () => {
+      alerta.classList.add('hidden');
+    });
 
-const alerta = document.getElementById('alerta');
-const alertaTitulo = document.getElementById('alerta-titulo');
-const alertaMensagem = document.getElementById('alerta-mensagem');
-const alertaIcone = document.getElementById('alerta-icone');
-const botaoVoltar = document.getElementById('botao-voltar');
-const botaoContinuar = document.getElementById('botao-continuar');
-const botaoEnviar = document.getElementById('botao-enviar');
-const formulario = document.getElementById('formulario-dashboard');
+    // add a foto
+    document.getElementById('foto').addEventListener('change', (e) => {
+      const arquivo = e.target.files[0];
+      const preview = document.getElementById('preview-foto');
 
-function mostrarAlerta(mensagem, tipo = 'sucesso') {
-  const sucesso = tipo === 'sucesso';
+      if (!arquivo) {
+        preview.classList.add('hidden');
+        preview.removeAttribute('src');
+        return;
+      }
 
-  alerta.classList.remove('hidden', 'border-green-200', 'bg-green-50', 'text-green-800', 'border-red-200', 'bg-red-50', 'text-red-800');
+      preview.src = URL.createObjectURL(arquivo);
+      preview.classList.remove('hidden');
+    });
 
-  if (sucesso) {
-    alerta.classList.add('border-green-200', 'bg-green-50', 'text-green-800');
-    alertaTitulo.textContent = 'Sucesso';
-    alertaIcone.textContent = '✓';
-  } else {
-    alerta.classList.add('border-red-200', 'bg-red-50', 'text-red-800');
-    alertaTitulo.textContent = 'Atenção';
-    alertaIcone.textContent = '!';
-  }
+    // funções do editor 
+    function execCmd(command, value = null) {
+      document.execCommand(command, false, value);
+    }
 
-  alertaMensagem.textContent = mensagem;
+    function adicionarLink() {
+      const url = prompt("Digite o endereço da URL:", "https://");
+      if (url) {
+        execCmd("createLink", url);
+      }
+    }
 
-  window.clearTimeout(window.timerAlerta);
-  window.timerAlerta = window.setTimeout(() => {
-    alerta.classList.add('hidden');
-  }, 4000);
-}
+    const editor = document.getElementById('editor-descricao');
+    const charCount = document.getElementById('char-count');
+    const wordCount = document.getElementById('word-count');
 
-function atualizarAba(indice) {
-  abaAtual = indice;
+    editor.addEventListener('input', () => {
+      const texto = editor.innerText.trim();
+      charCount.textContent = texto.length;
+      wordCount.textContent = texto ? texto.split(/\s+/).length : 0;
+    });
 
-  document.querySelectorAll('.tab-content').forEach((conteudo) => {
-    conteudo.classList.add('hidden');
-  });
+    // serviços adicionar/remover serviços
+    document.getElementById('btn-adicionar-servico').addEventListener('click', () => {
+      const container = document.getElementById('lista-servicos');
+      const novoItem = document.createElement('div');
+      novoItem.className = 'flex items-center gap-3 item-servico';
+      novoItem.innerHTML = `
+        <input type="text" placeholder="Nome do serviço" class="flex-1 h-10 rounded-md border border-gray-300 bg-white px-3 text-sm outline-none focus:border-blue-600 focus:ring-1 focus:ring-blue-600">
+        <div class="relative w-36">
+          <span class="absolute left-3 top-2.5 text-sm text-gray-500">R$</span>
+          <input type="text" value="0" class="w-full h-10 pl-9 pr-3 rounded-md border border-gray-300 bg-white text-sm outline-none focus:border-blue-600 focus:ring-1 focus:ring-blue-600">
+        </div>
+        <button type="button" onclick="removerServico(this)" class="text-gray-400 hover:text-red-500 text-lg px-1" title="Remover serviço">&times;</button>
+      `;
+      container.appendChild(novoItem);
+    });
 
-  document.getElementById(`tab-${abas[indice]}`).classList.remove('hidden');
+    function removerServico(botao) {
+      const lista = document.getElementById('lista-servicos');
+      if (lista.children.length > 1) {
+        botao.closest('.item-servico').remove();
+      } else {
+        mostrarAlerta('Você deve manter ao menos um serviço na lista.', 'erro');
+      }
+    }
 
-  document.querySelectorAll('.tab-button').forEach((botao) => {
-    const ativo = botao.dataset.tab === abas[indice];
+    // 4. ABA GALERIA: Preview de Múltiplas Imagens
+    document.getElementById('imagens').addEventListener('change', (evento) => {
+      const lista = document.getElementById('lista-galeria');
+      const status = document.getElementById('galeria-status');
+      const arquivos = Array.from(evento.target.files);
 
-    botao.classList.toggle('bg-indigo-600', ativo);
-    botao.classList.toggle('text-white', ativo);
-    botao.classList.toggle('shadow-sm', ativo);
-    botao.classList.toggle('text-gray-500', !ativo);
-    botao.classList.toggle('hover:bg-gray-200', !ativo);
-    botao.classList.toggle('hover:text-gray-800', !ativo);
-  });
+      lista.innerHTML = '';
 
-  botaoVoltar.classList.toggle('hidden', indice === 0);
-  botaoContinuar.classList.toggle('hidden', indice === abas.length - 1);
-  botaoEnviar.classList.toggle('hidden', indice !== abas.length - 1);
-}
+      if (arquivos.length === 0) {
+        status.textContent = 'Nenhum arquivo escolhido';
+        return;
+      }
 
-document.querySelectorAll('.tab-button').forEach((botao) => {
-  botao.addEventListener('click', () => {
-    atualizarAba(abas.indexOf(botao.dataset.tab));
-  });
-});
+      status.textContent = `${arquivos.length} arquivo(s) selecionado(s)`;
 
-botaoContinuar.addEventListener('click', () => {
-  if (abaAtual < abas.length - 1) {
-    atualizarAba(abaAtual + 1);
-    mostrarAlerta(`Etapa ${abaAtual + 1} de ${abas.length} aberta.`);
-  }
-});
+      arquivos.forEach((arquivo) => {
+        const imagem = document.createElement('img');
+        imagem.src = URL.createObjectURL(arquivo);
+        imagem.alt = arquivo.name;
+        imagem.className = 'h-24 w-24 rounded-md border border-gray-200 object-cover shadow-sm';
+        lista.appendChild(imagem);
+      });
+    });
 
-botaoVoltar.addEventListener('click', () => {
-  if (abaAtual > 0) {
-    atualizarAba(abaAtual - 1);
-  }
-});
-
-formulario.addEventListener('submit', (evento) => {
-  evento.preventDefault();
-
-  const nomeMarca = document.getElementById('nome-marca').value.trim();
-
-  if (!nomeMarca) {
+    // Inicialização da primeira aba
     atualizarAba(0);
-    mostrarAlerta('Preencha o Nome da Marca antes de enviar.', 'erro');
-    document.getElementById('nome-marca').focus();
-    return;
-  }
-
-  mostrarAlerta('As informações da sua página foram enviadas com sucesso.');
-});
-
-document.getElementById('fechar-alerta').addEventListener('click', () => {
-  alerta.classList.add('hidden');
-});
-
-document.getElementById('foto').addEventListener('change', (evento) => {
-  const arquivo = evento.target.files[0];
-  const preview = document.getElementById('preview-foto');
-
-  if (!arquivo) {
-    preview.classList.add('hidden');
-    preview.removeAttribute('src');
-    return;
-  }
-
-  preview.src = URL.createObjectURL(arquivo);
-  preview.classList.remove('hidden');
-});
-
-document.getElementById('imagens').addEventListener('change', (evento) => {
-  const lista = document.getElementById('lista-galeria');
-  lista.innerHTML = '';
-
-  Array.from(evento.target.files).forEach((arquivo) => {
-    const imagem = document.createElement('img');
-    imagem.src = URL.createObjectURL(arquivo);
-    imagem.alt = arquivo.name;
-    imagem.className = 'h-20 w-20 rounded-md border border-gray-200 object-cover';
-    lista.appendChild(imagem);
-  });
-});
-
-atualizarAba(0);
-</script>
+  </script>
 
 </body>
-</html>
+</html>  

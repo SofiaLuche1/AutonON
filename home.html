@@ -13,7 +13,7 @@ name="viewport"
 content="width=device-width, initial-scale=1.0"
 >
 <link href="./dist/output.css" rel="stylesheet">
-<title>Modelo Coringa | AutonON</title>
+<title> AutonON</title>
 </head>
 <body
 class="
@@ -39,7 +39,7 @@ border-b
 border-alabaster/5"
 >
 <a
-href=".html"
+href="sobre_noix.html"
 class="
 flex
 items-center
@@ -84,7 +84,7 @@ cursor-pointer
 transition-all
 duration-200
 hover:bg-dark-sky-blue"
-onclick="mostrarModal('Acessar AutonON', 'Redirecionando você para a página de login...')"
+onclick="mostrarModal('Acessar AutonON', 'Redirecionando você para a página de cadastro...', 'cadastro.html')"
 >Acessar AutonON</button>
 </div>
 </header>
@@ -152,7 +152,7 @@ text-pastel-gray
 leading-relaxed
 mb-6"
 >
-Insira seus formulários, tabelas, cards ou listas de serviços diretamente neste espaço.
+Insira seus formulários, tabelas, cards ou listas de serviços neste espaço.
 </p>
 
 <button
@@ -750,24 +750,54 @@ const overlay = document.getElementById('modalOverlay');
 const modalTitle = document.getElementById('modalTitle');
 const modalMessage = document.getElementById('modalMessage');
 
-function mostrarModal(titulo, mensagem) {
-modalTitle.innerText = titulo;
-modalMessage.innerText = mensagem;
-overlay.classList.remove('opacity-0', 'invisible');
-overlay.firstElementChild.classList.remove('scale-80');
+let timerRedirecionamento = null;
+let urlDestino = null;
+
+function mostrarModal(titulo, mensagem, url = null) {
+  // Limpa qualquer temporizador que possa ter ficado ativo
+  if (timerRedirecionamento) {
+    clearTimeout(timerRedirecionamento);
+    timerRedirecionamento = null;
+  }
+
+  modalTitle.innerText = titulo;
+  modalMessage.innerText = mensagem;
+  urlDestino = url;
+
+  overlay.classList.remove('opacity-0', 'invisible');
+  overlay.firstElementChild.classList.remove('scale-80');
+
+  // Caso tenha sido fornecida uma URL, aguarda 2 segundos e faz o redirecionamento automático
+  if (urlDestino) {
+    timerRedirecionamento = setTimeout(() => {
+      window.location.href = urlDestino;
+    }, 2000);
+  }
 }
 
 function fecharModal() {
-overlay.classList.add('opacity-0', 'invisible');
-overlay.firstElementChild.classList.add('scale-80');
+  if (timerRedirecionamento) {
+    clearTimeout(timerRedirecionamento);
+    timerRedirecionamento = null;
+  }
+
+  overlay.classList.add('opacity-0', 'invisible');
+  overlay.firstElementChild.classList.add('scale-80');
+
+  // Redireciona imediatamente se houver uma página de destino associada ao modal
+  if (urlDestino) {
+    const destino = urlDestino;
+    urlDestino = null;
+    window.location.href = destino;
+  }
 }
 
 function voltarAoTopo() {
-window.scrollTo({ top: 0, behavior: 'smooth' });
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
 overlay.addEventListener('click', (e) => {
-if (e.target === overlay) fecharModal();
+  if (e.target === overlay) fecharModal();
 });
 </script>
 </body>

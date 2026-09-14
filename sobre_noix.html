@@ -12,21 +12,7 @@ name="viewport"
 content="width=device-width, initial-scale=1.0"
 >
 
-<script>
-tailwind.config = {
-theme: {
-extend: {
-colors: {
-'charleston-green': '#2A2829',
-'dark-sky-blue': '#97B4DE',
-'custom-blue': '#263A99',
-'alabaster': '#F0EBE5',
-'pastel-gray': '#DCD0BE',
-}
-}
-}
-}
-</script>
+
 <title>Arandu | AutonON</title>
 <link href="./dist/output.css" rel="stylesheet">
 </head>
@@ -39,7 +25,7 @@ flex-col
 min-h-screen
 overflow-x-hidden
 font-sans"
-
+></body>
 <!-- CABEÇALHO -->
 <header class="
 flex
@@ -151,7 +137,7 @@ text-alabaster
 hover:bg-[#3148b8]
 hover:-translate-y-0.5"
 onclick="mostrarModal('Área do Autônomo', 'Iniciando o fluxo de cadastro de prestador de serviço no AutonON!')"
->Quero Oferecer Serviços</button>
+> Serviços</button>
 <button
 class="
 py-3.5
@@ -169,7 +155,7 @@ border-pastel-gray
 hover:border-dark-sky-blue
 hover:text-dark-sky-blue"
 onclick="mostrarModal('Área do Cliente', 'Abrindo o catálogo de serviços para você contratar profissionais!')"
->Quero Contratar</button>
+> Contrate aqui</button>
 </div>
 </main>
 
@@ -186,13 +172,13 @@ items-center
 justify-center"
 >
 <img
-src="banner.jpg"
+src="imagens/servo.png"
 alt="Banner AutonON"
 class="
 absolute
 inset-0
-w-full
-h-full
+w-15
+h-15
 object-cover
 z-0"
 >
@@ -270,7 +256,7 @@ max-w-[850px]
 w-full
 text-center
 bg-charleston-green/40
-backdrop-blur-md
+backdrop-blur-mda
 border
 border-alabaster/10
 p-8
