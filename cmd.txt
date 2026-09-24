@@ -1,3 +1,41 @@
 Rodar no terminal do VScode para ver qualquer projeto offline com o Tailwindcss
 npm run build:css
 Obs: não fechar o terminal após executar
+
+Aqui está a **nova paleta de cores** adaptada para o tema claro com o fundo `#F6F7F3`:
+
+---
+
+### **1. Cores de Estrutura e Fundo**
+
+* **Fundo Principal (`body`):** `#F6F7F3`
+*(Creme / Off-white suave, descansável para a vista)*
+* **Cabeçalho e Rodapé (`header` / `footer`):** `#EBECE6`
+*(Tom levemente mais encorpado para dar profundidade e separação visual)*
+* **Cartão de Conteúdo (`main section`):** `#FFFFFF`
+*(Branco puro para destacar os cards e áreas de conteúdo)*
+* **Bordas e Divisores:** `#D8D9D1` / `#E2E4DC`
+*(Linhas sutis e elegantes que não poluem o visual)*
+
+---
+
+### **2. Tipografia e Textos**
+
+* **Títulos e Destaques Principais:** `#1E293B` *(Azul-grafite bem escuro)*
+* **Texto de Corpo:** `#212529` *(Grafite neutro e de alta legibilidade)*
+* **Texto Secundário / Subtítulos:** `#475569` ou `text-slate-600` *(Cinza médio suave)*
+
+---
+
+### **3. Destaque e Ações (Botões / Links)**
+
+* **Cor Primária de Ação:** `#2563eb` *(Azul Royal)*
+* **Hover de Ação:** `#1d4ed8` *(Azul um tom mais escuro ao passar o mouse)*
+* **Texto de Botão:** `#FFFFFF` *(Branco)*
+
+---
+
+### **4. Redes Sociais e Elementos Especiais**
+
+* **Borda interna do hover das Redes Sociais (`before:bg-...`):** `#EBECE6` *(Ajustado exatamente para coincidir com o fundo do rodapé)*
+* **Sombra de Modal / Animação:** `bg-slate-900/40` *(Escurecimento suave para foco no modal)*

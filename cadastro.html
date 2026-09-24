@@ -11,36 +11,50 @@ name="viewport"
 content="width=device-width, initial-scale=1.0"
 >
 
+<!-- CDN TailwindCSS -->
+<script
+src="https://cdn.tailwindcss.com"
+></script>
 <script>
 tailwind.config = {
 theme: {
 extend: {
 colors: {
-'charleston-green': '#2A2829',
-'dark-sky-blue': '#97B4DE',
-'custom-blue': '#263A99',
-'alabaster': '#F0EBE5',
-'pastel-gray': '#DCD0BE',
+'bg-main': '#F6F7F3',
+'header-bg': '#EBECE6',
+'border-soft': '#D8D9D1',
+'card-border': '#E2E4DC',
+'brand-blue': '#2563eb',
+'brand-blue-hover': '#1d4ed8',
+'text-dark': '#1e293b',
+'text-body': '#212529'
 }
 }
 }
 }
 </script>
 
+<!-- Widget Script -->
+<script
+src="./src/JS/widget.min.js"
+></script>
+
 <title>AutonON | Cadastro</title>
-
-<link href="./dist/output.css" rel="stylesheet">
+<link
+href="./dist/output.css"
+rel="stylesheet"
+>
 </head>
-
 <body
 class="
-bg-charleston-green
-text-alabaster
+bg-[#F6F7F3]
+text-[#212529]
 flex
 flex-col
 min-h-screen
 overflow-x-hidden
-font-sans"
+font-sans
+antialiased"
 >
 
 <!-- BARRA DE NAVEGAÇÃO / HEADER -->
@@ -51,39 +65,42 @@ items-center
 gap-4
 py-4
 px-[8%]
-bg-charleston-green
+bg-[#EBECE6]
 border-b
-border-alabaster/10
+border-[#D8D9D1]
 text-sm"
 >
 <a
 href="home.html"
 class="
-text-dark-sky-blue
+text-[#2563eb]
+font-medium
 hover:underline"
 >Lar</a>
 
 <span
 class="
-text-alabaster/30"
+text-slate-400"
 >|</span>
 
 <a
 href="sobre_noix.html"
 class="
-text-dark-sky-blue
+text-[#2563eb]
+font-medium
 hover:underline"
 >Sobre Nós</a>
 
 <span
 class="
-text-alabaster/30"
+text-slate-400"
 >|</span>
 
 <a
 href="dashboard.html"
 class="
-text-dark-sky-blue
+text-[#2563eb]
+font-medium
 hover:underline"
 >Criar</a>
 </header>
@@ -132,48 +149,64 @@ class="
 w-full
 max-w-md
 aspect-square
+bg-white
+border
+border-[#E2E4DC]
 rounded-3xl
 flex
 items-center
 justify-center
-shadow-inner"
+p-6
+shadow-sm"
 >
 
 <div
 class="
-px-6
-text-center"
+w-full
+h-full
+flex
+flex-col
+items-center
+justify-center"
 >
 
 <span
 class="
 block
-text-6xl
-mb-4"
-><img src="./imagens/servo.png" 
-alt="Imagem 3D" 
+w-full
+h-4/5
+mb-2
+overflow-hidden
+rounded-2xl"
+>
+<img
+src="./imagens/servo.png"
+alt="Imagem 3D"
 class="
-w-full 
-h-full 
-object-contain 
-rounded-3xl">
+w-full
+h-full
+object-contain
+rounded-2xl"
+>
 </span>
 
 <p
 class="
-text-dark-sky-blue
-font-semibold"
+text-[#2563eb]
+font-semibold
+text-sm"
 >
 Mudar imagem 3D depois
 </p>
 
 <p
 class="
-text-pastel-gray/70
-text-sm
-mt-2"
+text-slate-500
+text-xs
+mt-1"
 >
-descrição ou obss</p>
+descrição ou obs
+</p>
 
 </div>
 
@@ -194,13 +227,15 @@ lg:justify-end"
 <div
 class="
 bg-white
-text-gray-800
+border
+border-[#E2E4DC]
+text-[#212529]
 w-full
 max-w-md
 p-6
 sm:p-8
 rounded-2xl
-shadow-2xl"
+shadow-sm"
 >
 
 <h1
@@ -208,7 +243,7 @@ class="
 text-2xl
 font-bold
 text-center
-text-gray-900
+text-[#1e293b]
 mb-6"
 >
 Criar Conta
@@ -235,7 +270,7 @@ for="nome"
 class="
 text-xs
 font-semibold
-text-gray-700"
+text-slate-700"
 >
 Nome:
 </label>
@@ -248,17 +283,19 @@ required
 class="
 w-full
 border
-border-gray-300
+border-[#CBD5E1]
+bg-[#F9FAFB]
 rounded-lg
 px-3
 py-2
 text-sm
-text-gray-900
-bg-gray-50
+text-[#212529]
 outline-none
-caret-custom-blue
-focus:border-custom-blue
-focus:bg-white"
+focus:bg-white
+focus:border-[#2563eb]
+focus:ring-1
+focus:ring-[#2563eb]
+transition-all"
 >
 
 </div>
@@ -276,7 +313,7 @@ for="usuario"
 class="
 text-xs
 font-semibold
-text-gray-700"
+text-slate-700"
 >
 Nome de usuário:
 </label>
@@ -289,17 +326,19 @@ required
 class="
 w-full
 border
-border-blue-200
+border-[#CBD5E1]
+bg-[#F9FAFB]
 rounded-lg
 px-3
 py-2
 text-sm
-text-gray-900
-bg-blue-50/60
+text-[#212529]
 outline-none
-caret-custom-blue
-focus:border-custom-blue
-focus:bg-white"
+focus:bg-white
+focus:border-[#2563eb]
+focus:ring-1
+focus:ring-[#2563eb]
+transition-all"
 >
 
 </div>
@@ -317,7 +356,7 @@ for="email"
 class="
 text-xs
 font-semibold
-text-gray-700"
+text-slate-700"
 >
 E-mail:
 </label>
@@ -330,17 +369,19 @@ required
 class="
 w-full
 border
-border-gray-300
+border-[#CBD5E1]
+bg-[#F9FAFB]
 rounded-lg
 px-3
 py-2
 text-sm
-text-gray-900
-bg-gray-50
+text-[#212529]
 outline-none
-caret-custom-blue
-focus:border-custom-blue
-focus:bg-white"
+focus:bg-white
+focus:border-[#2563eb]
+focus:ring-1
+focus:ring-[#2563eb]
+transition-all"
 >
 
 </div>
@@ -358,7 +399,7 @@ for="senha"
 class="
 text-xs
 font-semibold
-text-gray-700"
+text-slate-700"
 >
 Senha:
 </label>
@@ -371,17 +412,19 @@ required
 class="
 w-full
 border
-border-blue-200
+border-[#CBD5E1]
+bg-[#F9FAFB]
 rounded-lg
 px-3
 py-2
 text-sm
-text-gray-900
-bg-blue-50/60
+text-[#212529]
 outline-none
-caret-custom-blue
-focus:border-custom-blue
-focus:bg-white"
+focus:bg-white
+focus:border-[#2563eb]
+focus:ring-1
+focus:ring-[#2563eb]
+transition-all"
 >
 
 </div>
@@ -399,7 +442,7 @@ for="confirmar-senha"
 class="
 text-xs
 font-semibold
-text-gray-700"
+text-slate-700"
 >
 Digite a senha novamente:
 </label>
@@ -412,17 +455,19 @@ required
 class="
 w-full
 border
-border-gray-300
+border-[#CBD5E1]
+bg-[#F9FAFB]
 rounded-lg
 px-3
 py-2
 text-sm
-text-gray-900
-bg-gray-50
+text-[#212529]
 outline-none
-caret-custom-blue
-focus:border-custom-blue
-focus:bg-white"
+focus:bg-white
+focus:border-[#2563eb]
+focus:ring-1
+focus:ring-[#2563eb]
+transition-all"
 >
 
 </div>
@@ -433,8 +478,9 @@ type="submit"
 class="
 mt-2
 w-full
-bg-blue-600
-hover:bg-blue-700
+bg-[#2563eb]
+hover:bg-[#1d4ed8]
+active:scale-[0.98]
 text-white
 py-2.5
 rounded-lg
@@ -442,33 +488,39 @@ font-semibold
 flex
 items-center
 justify-center
-transition-colors
-cursor-pointer"
+transition-all
+cursor-pointer
+shadow-sm"
 >
 
 <span
 class="
-text-lg"
+text-base"
 >
 🐰 Enviar 🐰
 </span>
 
 </button>
-<p 
+
+<!-- Link de Login -->
+<p
 class="
-MT-4 
+mt-2
 text-xs
-text-gray
+text-slate-600
 flex
 items-center
 justify-center
 gap-1"
 >
 Já tem uma conta?
-<a href="login.html" 
+<a
+href="login.html"
 class="
-text-dark-blue
-hover:underline">
+text-[#2563eb]
+font-semibold
+hover:underline"
+>
 Fazer Login
 </a>
 </p>
@@ -485,30 +537,27 @@ Fazer Login
 
 <!-- SCRIPT DE VALIDAÇÃO E REDIRECIONAMENTO -->
 <script>
-  document.getElementById('form-cadastro').addEventListener('submit', function(event) {
-    event.preventDefault(); // Impede o envio padrão do formulário
+document.getElementById('form-cadastro').addEventListener('submit', function(event) {
+  event.preventDefault();
 
-    const nome = document.getElementById('nome').value.trim();
-    const usuario = document.getElementById('usuario').value.trim();
-    const email = document.getElementById('email').value.trim();
-    const senha = document.getElementById('senha').value;
-    const confirmarSenha = document.getElementById('confirmar-senha').value;
+  const nome = document.getElementById('nome').value.trim();
+  const usuario = document.getElementById('usuario').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const senha = document.getElementById('senha').value;
+  const confirmarSenha = document.getElementById('confirmar-senha').value;
 
-    // Valida se algum campo está vazio
-    if (!nome || !usuario || !email || !senha || !confirmarSenha) {
-      alert('Por favor, preencha todos os campos!');
-      return;
-    }
+  if (!nome || !usuario || !email || !senha || !confirmarSenha) {
+    alert('Por favor, preencha todos os campos!');
+    return;
+  }
 
-    // Valida se as senhas coincidem
-    if (senha !== confirmarSenha) {
-      alert('As senhas não coincidem!');
-      return;
-    }
+  if (senha !== confirmarSenha) {
+    alert('As senhas não coincidem!');
+    return;
+  }
 
-    // Redireciona para a página dashboard.html
-    window.location.href = 'dashboard.html';
-  });
+  window.location.href = 'dashboard.html';
+});
 </script>
 
 </body>
